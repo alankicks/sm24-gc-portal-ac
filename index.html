@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Access Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fbbd3b;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #agreement-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      color: #333;
+      max-width: 500px;
+      width: 80%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-content img {
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .popup-content p {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .popup-content ol {
+      text-align: left;
+      padding-left: 20px;
+      margin: 15px 0;
+    }
+
+    .popup-content ol li {
+      margin-bottom: 10px;
+    }
+
+    .popup-content ol li::marker {
+      font-weight: bold;
+    }
+
+    .popup-content button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup-content button#agree-button {
+      background-color: #fbbd3b;
+      color: #fff;
+    }
+
+    .popup-content button#disagree-button {
+      background-color: #ccc;
+      color: #333;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div id="agreement-popup">
+    <div class="popup-content">
+      <img src="https://raw.githubusercontent.com/alankicks/assets/main/Spilt%20Milk%20Logo%20SM24.png" alt="Spilt Milk Logo">
+      <p>Welcome to the Spilt Milk Gold Coast 2024 Portal.</p>
+      <p>The contents provided herein are confidential and intended for authorised personnel only.</p>
+      <p>By accessing this portal, you agree to the following terms and conditions:</p>
+      <ol>
+        <li>You acknowledge that all information contained within this portal is confidential and proprietary.</li>
+        <li>You agree not to share, distribute, or disclose any content from this portal without proper authorisation.</li>
+        <li>You agree to use the information solely for the purpose of managing and planning the Spilt Milk Gold Coast 2024 festival.</li>
+      </ol>
+      <button id="agree-button">Agree</button>
+      <button id="disagree-button">Disagree</button>
+      <div class="footer-text">Kicks Entertainment Events P/L 2024</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (localStorage.getItem('agreedToTermsGoldCoast')) {
+        window.location.href = 'https://sites.google.com/kicksentertainment.com.au/goldcoaststakeholderhome/home';
+      }
+
+      document.getElementById('agree-button').addEventListener('click', function () {
+        localStorage.setItem('agreedToTermsGoldCoast', 'true');
+        window.location.href = 'https://sites.google.com/kicksentertainment.com.au/goldcoaststakeholderhome/home';
+      });
+
+      document.getElementById('disagree-button').addEventListener('click', function () {
+        window.location.href = 'https://www.google.com';
+      });
+    });
+  </script>
+</body>
+</html>
